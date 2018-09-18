@@ -16,8 +16,10 @@ namespace DummyGame.Android
 
         public Game1(string contentDir = "Content")
         {
+            contentDir = "DummyGame";
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = contentDir;
+            System.Console.WriteLine("HELLO TEST");
             System.Console.WriteLine(contentDir);
             graphics.IsFullScreen = true;
             graphics.PreferredBackBufferWidth = 800;
