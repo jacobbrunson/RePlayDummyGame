@@ -5,21 +5,12 @@ using Android.Views;
 
 namespace DummyGame.Android
 {
-    [Activity(Label = "DummyGame.Android"
-        , MainLauncher = true
-        , Icon = "@drawable/icon"
-        , Theme = "@style/Theme.Splash"
-        , AlwaysRetainTaskState = true
-        /*, LaunchMode = Android.Content.PM.LaunchMode.SingleInstance*/
-        , ScreenOrientation = ScreenOrientation.FullUser
-        , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize)]
+    [Activity(Label = "DummyGame.Android")]
     public class Activity1 : Microsoft.Xna.Framework.AndroidGameActivity
     {              
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            
 
             string contentDir = Intent.GetStringExtra("CONTENT_DIR");
 
