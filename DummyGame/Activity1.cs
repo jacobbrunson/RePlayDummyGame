@@ -7,14 +7,16 @@ namespace DummyGame.Android
 {
     [Activity(Label = "DummyGame.Android")]
     public class Activity1 : Microsoft.Xna.Framework.AndroidGameActivity
-    {              
+    {
+        Game1 g;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             string contentDir = Intent.GetStringExtra("CONTENT_DIR");
 
-            var g = new Game1(contentDir);
+            g = new Game1(contentDir);
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
         }
@@ -36,6 +38,7 @@ namespace DummyGame.Android
         }
         protected override void OnPause()
         {
+            g.IsActive = false;
             System.Console.WriteLine("In the OnPause() DummyGame event");
             base.OnPause();
         }
