@@ -11,8 +11,9 @@ namespace DummyGame.Android
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
         Texture2D temoc;
+        Texture2d myTexture;
+        Vector2 position;
 
         public Game1(string contentDir = "Content")
         {
@@ -25,6 +26,7 @@ namespace DummyGame.Android
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 480;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+            position = new Vector2(0, 0);
         }
 
         /// <summary>
@@ -36,6 +38,13 @@ namespace DummyGame.Android
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            myTexture = new Texture2D(this.GraphicsDevice, 100, 100);
+            Color[] colorData = new Color[100 * 100];
+            for (int i = 0; i < 10000; i++)
+                colorData[i] = Color.Red;
+
+            myTexture.SetData<Color>(colorData);
 
             base.Initialize();
         }
@@ -79,6 +88,10 @@ namespace DummyGame.Android
 
                 // TODO: Add your update logic here
 
+                position.X += 1;
+                if (position.X > this.GraphicsDevice.Viewport.Width)
+                    position.X = 0;
+
                 base.Update(gameTime);
             }
         }
@@ -93,6 +106,7 @@ namespace DummyGame.Android
 
             spriteBatch.Begin();
             spriteBatch.Draw(temoc, Vector2.Zero, Color.White);
+            spriteBatch.Draw(myTexture, position);
             spriteBatch.End();
 
             base.Draw(gameTime);
