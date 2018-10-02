@@ -18,5 +18,36 @@ namespace DummyGame.Android
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
         }
+
+        protected override void OnStart()
+        {
+            System.Console.WriteLine("In the OnStart() DummyGame event");
+            base.OnStart();
+        }
+        protected override void OnRestart()
+        {
+            System.Console.WriteLine("In the OnRestart() DummyGame event");
+            base.OnRestart();
+        }
+        protected override void OnResume()
+        {
+            System.Console.WriteLine("In the OnResume() DummyGame event");
+            base.OnResume();
+        }
+        protected override void OnPause()
+        {
+            System.Console.WriteLine("In the OnPause() DummyGame event");
+            base.OnPause();
+        }
+        protected override void OnStop()
+        {
+            System.Console.WriteLine("In the OnStop() DummyGame event");
+            base.OnStop();
+        }
+        protected override void OnDestroy()
+        {
+            System.Console.WriteLine("In the OnDestroy() DummyGame event");
+            base.OnDestroy();
+        }
     }
 }
