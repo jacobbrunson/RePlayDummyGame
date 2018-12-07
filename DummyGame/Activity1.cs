@@ -14,7 +14,8 @@ namespace DummyGame.Android
 
             
 
-            string contentDir = Intent.GetStringExtra("CONTENT_DIR");
+            string contentDir = Intent.GetStringExtra("CONTENT_DIR"); //Set Content.RootDirectory to this
+            int duration = Intent.GetIntExtra("duration", 300); //Units of seconds
 
             var g = new Game1(contentDir);
             SetContentView((View)g.Services.GetService(typeof(View)));
