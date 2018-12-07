@@ -71,6 +71,7 @@ namespace DummyGame.Android
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                Game.Activity.SetResult(Android.App.Result.Ok);
                 Game.Activity.Finish();
 
             // TODO: Add your update logic here
